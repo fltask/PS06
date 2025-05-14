@@ -91,3 +91,17 @@ ROBOTSTXT_OBEY = True
 
 # Set settings whose default value is deprecated to a future-proof value
 FEED_EXPORT_ENCODING = "utf-8"
+FEED_EXPORTERS = {
+    # 'csv' — формат, который мы переопределяем
+    'csv': f'{BOT_NAME}.exporters.CsvCustomDelimiter',
+}
+
+FEEDS = {
+    'results/svetilniks.csv': {
+        'format': 'csv',
+        'overwrite': True,
+        # остальные опции, например:
+        'encoding': 'utf-8-sig',
+    },
+}
+
